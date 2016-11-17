@@ -1,0 +1,35 @@
+USE d6_Shipsoftware
+
+INSERT INTO Persons(ShipID, Title,					         SocialID,			FirstName,		LastName,		Phone,			  ZipCode,		City,		  MailingAddress,   Picture)
+	Values(			      1,		  'Kapteeni',				      '01234-0001',		'Matti',		  'Seppänen',	'168613899',	'65200',	'Vaasa',	'Wolffintie 31',	null);
+INSERT INTO Persons(ShipID, Title,					         SocialID,			FirstName,		LastName,		Phone,			  ZipCode,		City,		  MailingAddress, Picture)
+	Values(			      1,		  'Perämies',				      '01234-0002',		'Joona',		  'Kotka',		'3467489763',	'65200',		'Vaasa',	'Wolffintie 25', null);
+INSERT INTO Persons(ShipID, Title,					         SocialID,			FirstName,	  LastName,		Phone,			  ZipCode,		City,		  MailingAddress, Picture)
+	Values(			      1,		  'Turvallisuusvastaaja', '01234-0003',		'Erkki',		  'Isotalo',	'865432489',	'65200',		'Vaasa',	'Ahventie 10', null);
+INSERT INTO Persons(ShipID, Title,					         SocialID,			FirstName,	  LastName,	  Phone,			  ZipCode,		City,		  MailingAddress, Picture)
+	Values(			      1,		  'Moottorimekaniikko',	  '01234-0004',		'Sasu',			  'Nurminen',	'3456748963',	'65200',		'Vaasa',	'Ahventie 2', null);
+INSERT INTO Persons(ShipID, Title,					         SocialID,			FirstName,		LastName,		Phone,			  ZipCode,		City,		  MailingAddress, Picture)
+	Values(			      1,		  'Rahtivastaaja',		     '01234-0009',	'Janne',		  'Soini',		'0503459875',	'65200',		'Vaasa',	'Palosaarentie 29', null);
+INSERT INTO Persons(ShipID, Title,					         SocialID,			FirstName,		LastName,		Phone,			  ZipCode,		City,		MailingAddress, Picture)
+	Values(			      1,		'Sähkömekaniikko',		     '01234-0012',	'Eino',			  'Heikkinen','0600657895',	'65200',		'Vaasa',	'Kapteeninkatu 1', null);
+INSERT INTO Persons(ShipID, Title,					SocialID,			FirstName,		LastName,		Phone,			ZipCode,		City,		MailingAddress, Picture)
+	Values(			1,		'Matkustaja',			'01234-0013',		'Taina',		'Järvelä',		'0198456243',	'80160',		'Joensuu',	'Marjalantie 2', null);
+INSERT INTO Persons(ShipID, Title,					SocialID,			FirstName,		LastName,		Phone,			ZipCode,		City,		MailingAddress, Picture)
+	Values(			1,		'Matkustaja',			'01234-0014',		'Kimmo',		'Järvelä',		'5053498762',	'80160',		'Joensuu',	'Marjalantie 2', null);
+INSERT INTO Persons(ShipID, Title,					SocialID,			FirstName,		LastName,		Phone,			ZipCode,		City,		MailingAddress, Picture)
+	Values(			2,		'Kapteeni',				'01234-0005',		'Ville',		'Jokinen',		'3548978364',	'65200',		'Vaasa',	'Kirkkopuistikko 5', null);
+INSERT INTO Persons(ShipID, Title,					SocialID,			FirstName,		LastName,		Phone,			ZipCode,		City,		MailingAddress, Picture)
+	Values(			2,		'Perämies',				'01234-0006',		'Tuukka',		'Kuusela',		'354889752',	'65200',		'Vaasa',	'Hovioikeudenpuisto 2', null);
+INSERT INTO Persons(ShipID, Title,					SocialID,			FirstName,		LastName,		Phone,			ZipCode,		City,		MailingAddress, Picture)
+	Values(			2,		'Turvallisuusvastaaja',	'01234-0007',		'Jenni',		'Nieminen',		'8656431285',	'65200',		'Vaasa',	'Palosaarentie 13', null);
+INSERT INTO Persons(ShipID, Title,					SocialID,			FirstName,		LastName,		Phone,			ZipCode,		City,		MailingAddress, Picture)
+	Values(			2,		'Moottorimekaniikko',	'01234-0008',		'Tommi',		'Tuomioja',		'050135896',	'65200',		'Vaasa',	'Palosaarentie 30', null);
+INSERT INTO Persons(ShipID, Title,					SocialID,			FirstName,		LastName,		Phone,			ZipCode,		City,		MailingAddress, Picture)
+	Values(			2,		'Rahtivastaaja',		'01234-0010',		'Ilkka',		'Palosaari',	'659875022',	'65200',		'Vaasa',	'Wolffintie 30', null);
+INSERT INTO Persons(ShipID, Title,					SocialID,			FirstName,		LastName,		Phone,			ZipCode,		City,		MailingAddress, Picture)
+	Values(			2,		'Sähkömekaniikko',		'01234-0011',		'Oona',			'Vuorinen',		'044456891',	'65200',		'Vaasa',	'Kapteeninkatu 11', null);
+INSERT INTO Persons(ShipID, Title,					SocialID,			FirstName,		LastName,		Phone,			ZipCode,		City,		MailingAddress, Picture)
+	Values(			2,		'Matkustaja',			'01234-0015',		'Sakari',		'Repo',			'185556842',	'42050',		'Helsinki',	'Unioninkatu 50', null);
+INSERT INTO Persons(ShipID, Title,					SocialID,			FirstName,		LastName,		Phone,			ZipCode,		City,		MailingAddress, Picture)
+	Values(			2,		'Matkustaja',			'01234-0016',		'Ilmari',		'Juntunen',		'156887996',	'42050',		'Helsinki',	'Snelmanninkatu 6', null);
+
