@@ -4,7 +4,6 @@ CREATE TABLE ShipTypes (
 	Name varchar(30) NOT NULL , /* matkustaja,tankkeri, sukellusvene, sotavene, rahtilaiva */
 PRIMARY KEY (ShipTypeID) );
 
-
 CREATE TABLE ShipPorts (
 	ShipPortID int NOT NULL IDENTITY(1,1),
 	Name varchar(85) NOT NULL ,
@@ -19,8 +18,6 @@ CREATE TABLE RouteCheckpoint (
 	East float NOT NULL ,
 PRIMARY KEY (CheckpointID) );
 
-
-
 CREATE TABLE ShipRoutes (
 	ShipRoutesID int NOT NULL IDENTITY(1,1),
 	StartingPortID int  ,
@@ -28,7 +25,6 @@ CREATE TABLE ShipRoutes (
 PRIMARY KEY (ShipRoutesID) ,
 FOREIGN KEY (StartingPortID) REFERENCES ShipPorts (ShipPortID) , 
 FOREIGN KEY (EndingPortID) REFERENCES ShipPorts (ShipPortID),
-
 
 CREATE TABLE ShipRouteCheckpoint (
 	ShipRouteCheckpointID int NOT NULL IDENTITY(1,1),
@@ -45,8 +41,8 @@ CREATE TABLE Ships (
 	ShipLength decimal(5,2),					/* metreinä kiitos*/ 
 	ShipWidth decimal(6,3),					/* metreinä kiitos*/
 	ShipDraft decimal(4,2),					/* metreinä iitos*/
-	ShipDeadWeight decimal(6),				/* tonneina kiitos*/
-	ShipGrossTonnage decimal(6),					/* tonneina kiitos*/
+	ShipDeadWeight int,				/* tonneina kiitos*/
+	ShipGrossTonnage int,					/* tonneina kiitos*/
 	ShipRoutesID int, 					/* ShipRoutesID taulukossa ShipRoutes */
 	MMSI int NOT NULL, 						-- MMSI numero käytetään back-endis
 	Course float ,					-- laivan suunta
@@ -69,7 +65,6 @@ CREATE TABLE Cargo (
 PRIMARY KEY (CargoID) ,
 FOREIGN KEY (ShipID) REFERENCES Ships );
 
-
 CREATE TABLE Container (
 	ContainerBarCode int NOT NULL ,
 	ContainerWeight decimal(6, 3) NOT NULL , -- kg
@@ -87,7 +82,6 @@ PRIMARY KEY (ContainerBarCode) ,
 FOREIGN KEY (CargoID) REFERENCES Cargo,
 FOREIGN KEY (ContainerBarCode) REFERENCES Container );
 
-
 CREATE TABLE Persons (
 	ShipID int NOT NULL ,
 	Title varchar(60),			/*	#Esim kapteeni, perämies jne.*/
@@ -101,12 +95,3 @@ CREATE TABLE Persons (
 	Picture varbinary(max) ,   /*SELVITÄ OIKEA MUOTO*/
 PRIMARY KEY (SocialID ),
 FOREIGN KEY (ShipID) REFERENCES Ships);
-
-
-
-
-
-
-
-
-
