@@ -58,6 +58,7 @@ CREATE TABLE GPS (
 	ShipID int NOT NULL,
 	North float NOT NULL,
 	East float NOT NULL,
+	UpdatedTime datetime NOT NULL DEFAULT GETDATE(),
 PRIMARY KEY (ShipID),
 FOREIGN KEY (ShipID) REFERENCES Ships);
 
