@@ -39,7 +39,7 @@ CREATE TABLE Ships (
 	ShipName varchar(40) NOT NULL , 		/* USS Manhattan*/
 	ShipTypeID int NOT NULL,		/* matkustaja,tankkeri, sukellusvene, sotavene, rahtilaiva*/
 	ShipLength decimal(5,2),					/* metreinä kiitos*/ 
-	ShipWidth decimal(6,3),					/* metreinä kiitos*/
+	ShipWidth decimal(5,2),					/* metreinä kiitos*/
 	ShipDraft decimal(4,2),					/* metreinä iitos*/
 	ShipDeadWeight int,				/* tonneina kiitos*/
 	ShipGrossTonnage int,					/* tonneina kiitos*/
@@ -88,8 +88,8 @@ CREATE TABLE Persons (
 	SocialID varchar(11) NOT NULL ,
 	FirstName varchar(30) NOT NULL ,
 	LastName varchar(30) NOT NULL,
-	Phone varchar(20),
-	ZipCode varchar(5) ,				/*#NOT NULL päälle kun on testattu*/
+	Phone varchar(20),				/* Muuta kun persons table päivitetty!! */
+	ZipCode char(5) ,				/*#NOT NULL päälle kun on testattu*/
 	City Varchar(85) ,		/*#NOT NULL päälle kun on testattu*/
 	MailingAddress Varchar (85) ,			/*#NOT NULL päälle kun on testattu*/
 	Picture varbinary(max) ,   /*SELVITÄ OIKEA MUOTO*/
