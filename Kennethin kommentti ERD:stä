@@ -1,0 +1,6 @@
+Hyvää looginen kaavio. Teillä näyttää olevan aika kunniahimoinen projekti.
+Näen kumminkin ongelmaa "Ships" ja "Ships Routes" taulukoiden välillä.
+Siinä on nyt moni moneen relaatio. Laivalla voi olla monta reittiä esim. vuoden aikana ja yhdellä reitillä on monta laivaa.
+Sinne väliin voisi olla vaikka "Journey = matka" yhdellä laivalla voi olla monta matkaa mutta vain yksi yksilöity matka kerrallaan.
+Tietyllä reitillä voi olla minta matkaa, mutta yksilöidyllä matkalla on vain yksi reitti (tai EndingPort voi tietenkin muuttua matkan varrella).
+Näin minä näkisin asiaa tämän ERD perusteella.
