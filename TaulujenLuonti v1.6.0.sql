@@ -46,6 +46,8 @@ CREATE TABLE Ships (
 	ShipRoutesID int, 					/* ShipRoutesID taulukossa ShipRoutes */
 	MMSI int NOT NULL, 						-- MMSI numero käytetään back-endis
 	Course float ,					-- laivan suunta
+	IsSailing bit DEFAULT 0,
+	ShipSpeed decimal(6,4),
 PRIMARY KEY (ShipID ) ,
 FOREIGN KEY (ShipTypeID) REFERENCES ShipTypes); -- ONKO LAIVALLA pakko olla reitti?
 FOREIGN KEY (ShipRoutesID) REFERENCES ShipRoutes );
