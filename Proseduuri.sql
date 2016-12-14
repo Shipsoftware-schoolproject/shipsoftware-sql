@@ -2,7 +2,7 @@
 CREATE VIEW PaivitaLaivanHenkTiedot
 AS
 SELECT *
-FROM Persons
+FROM Persons;
 
 CREATE PROC PaivitaLaivanHenkTietoja
 	@ShipID (int),
@@ -16,18 +16,18 @@ CREATE PROC PaivitaLaivanHenkTietoja
 AS
 UPDATE PaivitaLaivanHenkTiedot
 SET Title = @title, Phone = @phone, ZipCode = @ZipCode, City = @City, MailingAddress = @MailingAddress, Picture = @Picture
-WHERE ShipID = @ShipID AND SocialID = @SocialID
+WHERE ShipID = @ShipID AND SocialID = @SocialID;
 
-EXEC PaivitaLaivanHenkTietoja 1, '01234-0013', 'Baarimikko', '0405019602', 'Kokkola', 'Jorintie 2', NULL
+EXEC PaivitaLaivanHenkTietoja 1, '01234-0013', 'Baarimikko', '0405019602', 'Kokkola', 'Jorintie 2', NULL;
 
 /* Hae henkilöitä tittelillä */
 CREATE PROC HaeHenkTiedotTittelilla
 	@Title varchar(60)
 AS
 SELECT * FROM Persons
-WHERE Title = @Title
+WHERE Title = @Title;
 
-EXEC HaeHenkTiedotTittelilla 'Kapteeni'
+EXEC HaeHenkTiedotTittelilla 'Kapteeni';
 
 /* Hae henkilöt laivasta jotka asuvat kaupungissa */
 CREATE PROC HaeHenkTiedotLaivaIDjaKaupunki
@@ -35,6 +35,6 @@ CREATE PROC HaeHenkTiedotLaivaIDjaKaupunki
     @City varchar(85)
 AS
 SELECT * FROM Persons
-WHERE ShipID = @ShipID AND City LIKE @City + '%'
+WHERE ShipID = @ShipID AND City LIKE @City + '%';
 
-EXEC HaeHenkTiedotLaivaIDjaKaupunki 1, 'Vaasa'
+EXEC HaeHenkTiedotLaivaIDjaKaupunki 1, 'Vaasa';
