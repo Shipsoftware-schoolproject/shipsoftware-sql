@@ -1,3 +1,8 @@
+CREATE VIEW PaivitaLaivanHenkTiedot
+AS
+SELECT *
+FROM Persons
+
 CREATE PROC PaivitaLaivanHenkTietoja
 	@ShipID (int),
 	@SocialID varchar(11),
