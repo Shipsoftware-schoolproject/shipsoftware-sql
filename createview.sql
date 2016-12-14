@@ -20,3 +20,9 @@ from Ships
 inner join ShipTypes
 on ShipTypes.ShipTypeID = Ships.ShipTypeID
 group by ShipTypes.Name
+
+create view EtsiKaikkiKapteenit as
+
+select SocialID, FirstName +' '+ LastName as Name, Title
+from Persons
+where Title like 'Kapteeni'
