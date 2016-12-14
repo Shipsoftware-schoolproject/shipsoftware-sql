@@ -30,11 +30,11 @@ WHERE Title = @Title
 EXEC HaeHenkTiedotTittelilla 'Kapteeni'
 
 /* Hae henkilöt laivasta jotka asuvat kaupungissa */
-CREATE PROC HaeHenkTiedotTittelillaJaLaivaID
+CREATE PROC HaeHenkTiedotLaivaIDjaKaupunki
     @ShipID int,
     @City varchar(85)
 AS
 SELECT * FROM Persons
 WHERE ShipID = @ShipID AND City LIKE @City + '%'
 
-EXEC HaeHenkTiedotTiettelillaJaLaivaID 'Kapteeni', 'Vaasa'
+EXEC HaeHenkTiedotLaivaIDjaKaupunki 1, 'Vaasa'
