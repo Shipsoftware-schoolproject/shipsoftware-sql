@@ -1,3 +1,4 @@
+/* Päivitä laivassa olevan henkilön tietoja */
 CREATE VIEW PaivitaLaivanHenkTiedot
 AS
 SELECT *
@@ -18,3 +19,12 @@ SET Title = @title, Phone = @phone, ZipCode = @ZipCode, City = @City, MailingAdd
 WHERE ShipID = @ShipID AND SocialID = @SocialID
 
 EXEC PaivitaLaivanHenkTietoja 1, '01234-0013', 'Baarimikko', '0405019602', 'Kokkola', 'Jorintie 2', NULL
+
+/* Hae henkilöitä tittelillä */
+CREATE PROC HaeHenkTiedotTittelilla
+	@Title varchar(60)
+AS
+SELECT * FROM Persons
+WHERE Title = @Title
+
+EXEC HaeHenkTiedotTiettililla 'Kapteeni'
