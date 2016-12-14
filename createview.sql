@@ -13,7 +13,7 @@ on Ships.ShipRoutesID = ShipRoutes.ShipRoutesID
 inner join ShipTypes
 on Ships.ShipTypeID = ShipTypes.ShipTypeID
 
-Create view Laivatyyppienm‰‰r‰ as
+Create view LaivaTyyppienMaara as
 
 select count(shipID) as laivojenM‰‰r‰, ShipTypes.Name
 from Ships
