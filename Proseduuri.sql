@@ -11,3 +11,5 @@ AS
 UPDATE PaivitaLaivanHenkTiedot
 SET Title = @title, Phone = @phone, ZipCode = @ZipCode, City = @City, MailingAddress = @MailingAddress, Picture = @Picture
 WHERE ShipID = @ShipID AND SocialID = @SocialID
+
+EXEC PaivitaLaivanHenkTietoja 1, '1234-0013', 'Baarimikko', '0405019602', 'Kokkola', 'Jorintie 2', NULL
