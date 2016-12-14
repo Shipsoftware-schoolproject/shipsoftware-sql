@@ -27,4 +27,4 @@ AS
 SELECT * FROM Persons
 WHERE Title = @Title
 
-EXEC HaeHenkTiedotTiettililla 'Kapteeni'
+EXEC HaeHenkTiedotTittelilla 'Kapteeni'
