@@ -97,3 +97,5 @@ CREATE TABLE Persons (
 	Picture varbinary(max) ,   /*SELVITÄ OIKEA MUOTO*/
 PRIMARY KEY (SocialID ),
 FOREIGN KEY (ShipID) REFERENCES Ships);
+
+CREATE INDEX ix_Title ON Persons(Title)
