@@ -47,3 +47,19 @@ AS
 SELECT * FROM Persons
 WHERE ShipID = @ShipID AND City LIKE @City + '%';
 /* EXEC HaeHenkTiedotLaivaIDjaKaupunki 1, 'Vaasa'; */
+
+/* Poista kontti */
+IF EXISTS (SELECT * FROM sysobjects WHERE name='PoistaKontti') BEGIN
+	DROP PROC PoistaKontti
+END
+GO
+CREATE PROC PoistaKontti
+@KonttiID int
+AS
+DELETE FROM CargoContainer
+WHERE ContainerBarCode = @KonttiID
+
+DELETE FROM Container
+WHERE ContainerBarCode = @KonttiID
+
+/* EXEC PoistaKontti 123 */
