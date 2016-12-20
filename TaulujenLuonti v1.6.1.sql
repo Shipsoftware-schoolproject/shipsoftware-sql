@@ -87,7 +87,7 @@ FOREIGN KEY (ContainerBarCode) REFERENCES Container );
 CREATE TABLE Persons (
 	ShipID int NOT NULL ,
 	Title varchar(60),			/*	#Esim kapteeni, perämies jne.*/
-	SocialID varchar(11) NOT NULL ,
+	SocialID char(11) NOT NULL ,
 	FirstName varchar(30) NOT NULL ,
 	LastName varchar(30) NOT NULL,
 	Phone varchar(20),				/* Muuta kun persons table päivitetty!! */
