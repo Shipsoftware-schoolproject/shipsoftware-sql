@@ -52,12 +52,14 @@ PRIMARY KEY (ShipID ) ,
 FOREIGN KEY (ShipTypeID) REFERENCES ShipTypes); -- ONKO LAIVALLA pakko olla reitti?
 FOREIGN KEY (ShipRoutesID) REFERENCES ShipRoutes );
 
+-- TODO: @Jori päivitä kantaan ja tee triggeri
 CREATE TABLE GPS (
+	LogID int NOT NULL IDENTITY(1,1),
 	ShipID int NOT NULL,
 	North float NOT NULL,
 	East float NOT NULL,
 	UpdatedTime datetime NOT NULL DEFAULT GETDATE(),
-PRIMARY KEY (ShipID),
+PRIMARY KEY (LogID),
 FOREIGN KEY (ShipID) REFERENCES Ships);
 
 CREATE TABLE Cargo (
