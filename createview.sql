@@ -15,7 +15,7 @@ on Ships.ShipTypeID = ShipTypes.ShipTypeID
 
 Create view LaivaTyyppienMaara as
 
-select count(shipID) as laivojenMaara, ShipTypes.Name
+select count(*) as laivojenMaara, ShipTypes.Name
 from Ships
 inner join ShipTypes
 on ShipTypes.ShipTypeID = Ships.ShipTypeID
