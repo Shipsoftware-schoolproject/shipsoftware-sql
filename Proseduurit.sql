@@ -63,3 +63,24 @@ DELETE FROM Container
 WHERE ContainerBarCode = @KonttiID
 
 /* EXEC PoistaKontti 123 */
+
+-- Hae laivan lastin kokonaispaino nimellä
+IF EXISTS (SELECT * FROM sysobjects WHERE name='HaeLaivanLastinKokonaispainoNimella') BEGIN
+	DROP PROC HaeLaivanLastinKokonaispainoNimella
+END
+GO
+create proc HaeLaivanLastinKokonaispainoNimella
+@LaivanNimi varchar(40)
+as
+select ShipName, sum(Overall_Weight) as LaivanLastinKokonaispaino
+From Ships
+inner join Cargo
+on Ships.ShipID = Cargo.CargoID
+inner join CargoContainer
+on cargo.CargoID = CargoContainer.CargoID
+inner join Container
+on Container.ContainerBarCode = CargoContainer.ContainerBarCode
+where ShipName like @LaivanNimi + '%'
+group by ShipName
+
+--exec LaivanLastinKokonaispaino 'Colombo'
