@@ -26,3 +26,9 @@ create view EtsiKaikkiKapteenit as
 select SocialID, FirstName +' '+ LastName as Name, Title
 from Persons
 where Title like 'Kapteeni'
+
+
+-- shipshort viewin päivitys
+UPDATE ShipShort
+Set IsSailing = 0
+WHERE ShipSpeed = 0
