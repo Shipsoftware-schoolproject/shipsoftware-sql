@@ -1,41 +1,43 @@
+/* versio: 1.6.1 */
+
 USE d6_Shipsoftware
 CREATE TABLE ShipTypes (
-	ShipTypeID int NOT NULL IDENTITY(1,1),
+	ShipTypeID int NOT NULL AUTO_INCREMENT,
 	Name varchar(30) NOT NULL , /* matkustaja,tankkeri, sukellusvene, sotavene, rahtilaiva */
 PRIMARY KEY (ShipTypeID) );
 
 CREATE TABLE ShipPorts (
-	ShipPortID int NOT NULL IDENTITY(1,1),
+	ShipPortID int NOT NULL AUTO_INCREMENT,
 	Name varchar(85) NOT NULL ,
 	North float NOT NULL ,
 	East float NOT NULL ,
 PRIMARY KEY (ShipPortID) );
 
 CREATE TABLE RouteCheckpoint (
-	CheckpointID int NOT NULL ,
+	CheckpointID int NOT NULL , /* TODO: tarvisiko AUTO_INCREMENT:n?? */
 	CheckpointName varchar(24) ,
 	North float NOT NULL ,
 	East float NOT NULL ,
 PRIMARY KEY (CheckpointID) );
 
 CREATE TABLE ShipRoutes (
-	ShipRoutesID int NOT NULL IDENTITY(1,1),
+	ShipRoutesID int NOT NULL AUTO_INCREMENT,
 	StartingPortID int  ,
 	EndingPortID int  ,	
 PRIMARY KEY (ShipRoutesID) ,
 FOREIGN KEY (StartingPortID) REFERENCES ShipPorts (ShipPortID) , 
-FOREIGN KEY (EndingPortID) REFERENCES ShipPorts (ShipPortID),
+FOREIGN KEY (EndingPortID) REFERENCES ShipPorts (ShipPortID) );
 
 CREATE TABLE ShipRouteCheckpoint (
-	ShipRouteCheckpointID int NOT NULL IDENTITY(1,1),
+	ShipRouteCheckpointID int NOT NULL AUTO_INCREMENT,
 	ShipRoutesID int NOT NULL ,
 	CheckpointID int NOT NULL ,
 PRIMARY KEY (ShipRouteCheckpointID) ,
-FOREIGN KEY (ShipRoutesID) REFERENCES ShipRoutes,
-FOREIGN KEY (CheckpointID) REFERENCES RouteCheckpoint);
+FOREIGN KEY (ShipRoutesID) REFERENCES ShipRoutes (ShipRoutesID),
+FOREIGN KEY (CheckpointID) REFERENCES RouteCheckpoint (CheckpointID) );
 
 CREATE TABLE Ships (
-	ShipID int NOT NULL IDENTITY(1,1), 					/*	yksilöllinen ID Laivalle*/
+	ShipID int NOT NULL AUTO_INCREMENT, 					/*	yksilöllinen ID Laivalle*/
 	ShipName varchar(40) NOT NULL , 		/* USS Manhattan*/
 	ShipTypeID int NOT NULL,		/* matkustaja,tankkeri, sukellusvene, sotavene, rahtilaiva*/
 	ShipLength decimal(5,2),					/* metreinä kiitos*/ 
@@ -49,25 +51,25 @@ CREATE TABLE Ships (
 	IsSailing bit DEFAULT 0,
 	ShipSpeed decimal (6,4) DEFAULT 0,
 PRIMARY KEY (ShipID ) ,
-FOREIGN KEY (ShipTypeID) REFERENCES ShipTypes); -- ONKO LAIVALLA pakko olla reitti?
-FOREIGN KEY (ShipRoutesID) REFERENCES ShipRoutes );
+FOREIGN KEY (ShipTypeID) REFERENCES ShipTypes (ShipTypeID),
+FOREIGN KEY (ShipRoutesID) REFERENCES ShipRoutes (ShipRoutesID) ); -- ONKO LAIVALLA pakko olla reitti?
 
 -- TODO: @Jori päivitä kantaan ja tee triggeri
 CREATE TABLE GPS (
-	LogID int NOT NULL IDENTITY(1,1),
+	LogID int NOT NULL AUTO_INCREMENT,
 	ShipID int NOT NULL,
 	North float NOT NULL,
 	East float NOT NULL,
-	UpdatedTime datetime NOT NULL DEFAULT GETDATE(),
+	UpdatedTime timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 PRIMARY KEY (LogID),
-FOREIGN KEY (ShipID) REFERENCES Ships);
+FOREIGN KEY (ShipID) REFERENCES Ships (ShipID) );
 
 CREATE TABLE Cargo (
-	CargoID int NOT NULL IDENTITY(1,1),
+	CargoID int NOT NULL AUTO_INCREMENT,
 	CargoType varchar(30) NOT NULL,
 	ShipID int NOT NULL,
 PRIMARY KEY (CargoID) ,
-FOREIGN KEY (ShipID) REFERENCES Ships );
+FOREIGN KEY (ShipID) REFERENCES Ships (ShipID) );
 
 CREATE TABLE Container (
 	ContainerBarCode int NOT NULL ,
@@ -83,8 +85,8 @@ CREATE TABLE CargoContainer (
 	CargoID int NOT NULL ,
 	Overall_Weight Decimal(6),
 PRIMARY KEY (ContainerBarCode) ,
-FOREIGN KEY (CargoID) REFERENCES Cargo,
-FOREIGN KEY (ContainerBarCode) REFERENCES Container );
+FOREIGN KEY (CargoID) REFERENCES Cargo (CargoID) ,
+FOREIGN KEY (ContainerBarCode) REFERENCES Container (ContainerBarCode) );
 
 CREATE TABLE Persons (
 	ShipID int NOT NULL ,
@@ -95,9 +97,9 @@ CREATE TABLE Persons (
 	Phone varchar(20),				/* Muuta kun persons table päivitetty!! */
 	ZipCode char(5) ,				/*#NOT NULL päälle kun on testattu*/
 	City Varchar(85) ,		/*#NOT NULL päälle kun on testattu*/
-	MailingAddress Varchar (85) ,			/*#NOT NULL päälle kun on testattu*/
-	Picture varbinary(max) ,   /*SELVITÄ OIKEA MUOTO*/
+	MailingAddress Varchar(85) ,			/*#NOT NULL päälle kun on testattu*/
+	Picture LONGBLOB,   /* TODO: ehkä kuvan voisi säilyttää esim. kiintolevyllä ja tämä olisi tyylin polku kuvaan? */
 PRIMARY KEY (SocialID ),
-FOREIGN KEY (ShipID) REFERENCES Ships);
+FOREIGN KEY (ShipID) REFERENCES Ships (ShipID) );
 
 CREATE INDEX ix_Title ON Persons(Title)
