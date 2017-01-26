@@ -24,7 +24,7 @@ VALUES ('Tallin Port',59.451199,24.765007);
 INSERT INTO ShipPorts (Name,North,East)
 VALUES ('Paldiski Port',59.354122,24.038829);
 INSERT INTO ShipPorts (Name,North,East)
-VALUES ('Riga Port',56.961848,24.090306,);
+VALUES ('Riga Port',56.961848,24.090306);
 INSERT INTO ShipPorts (Name,North,East)
 VALUES ('Liepaja Port',56.528791,20.991531);
 INSERT INTO ShipPorts (Name,North,East)
@@ -44,47 +44,47 @@ VALUES ('Helsinki Port',60.166603,24.954865);
 
 /* Routes */
 INSERT INTO ShipRoutes(StartingPortID,EndingPortID)
-VALUES (1,2)
+VALUES (1,2);
 INSERT INTO ShipRoutes(StartingPortID,EndingPortID)
-VALUES (3,1)
+VALUES (3,1);
 INSERT INTO ShipRoutes(StartingPortID,EndingPortID)
-VALUES (1,3)
+VALUES (1,3);
 INSERT INTO ShipRoutes(StartingPortID,EndingPortID)
-VALUES (4,2)
+VALUES (4,2);
 INSERT INTO ShipRoutes(StartingPortID,EndingPortID)
-VALUES (2,4)
+VALUES (2,4);
 INSERT INTO ShipRoutes(StartingPortID,EndingPortID)
-VALUES (5,6)
+VALUES (5,6);
 INSERT INTO ShipRoutes(StartingPortID,EndingPortID)
-VALUES (6,5)
+VALUES (6,5);
 INSERT INTO ShipRoutes(StartingPortID,EndingPortID)
-VALUES (5,16)
+VALUES (5,16);
 INSERT INTO ShipRoutes(StartingPortID,EndingPortID)
-VALUES (16,5)
+VALUES (16,5);
 INSERT INTO ShipRoutes(StartingPortID,EndingPortID)
-VALUES (7,8)
+VALUES (7,8);
 INSERT INTO ShipRoutes(StartingPortID,EndingPortID)
-VALUES (8,7)
+VALUES (8,7);
 INSERT INTO ShipRoutes(StartingPortID,EndingPortID)
-VALUES (9,10)
+VALUES (9,10);
 INSERT INTO ShipRoutes(StartingPortID,EndingPortID)
-VALUES (10,9)
+VALUES (10,9);
 INSERT INTO ShipRoutes(StartingPortID,EndingPortID)
-VALUES (12,13)
+VALUES (12,13);
 INSERT INTO ShipRoutes(StartingPortID,EndingPortID)
-VALUES (13,12)
+VALUES (13,12);
 INSERT INTO ShipRoutes(StartingPortID,EndingPortID)
-VALUES (11,13)
+VALUES (11,13);
 INSERT INTO ShipRoutes(StartingPortID,EndingPortID)
-VALUES (13,11)
+VALUES (13,11);
 INSERT INTO ShipRoutes(StartingPortID,EndingPortID)
-VALUES (5,16)
+VALUES (5,16);
 INSERT INTO ShipRoutes(StartingPortID,EndingPortID)
-VALUES (16,5)
+VALUES (16,5);
 INSERT INTO ShipRoutes(StartingPortID,EndingPortID)
-VALUES (15,14)
+VALUES (15,14);
 INSERT INTO ShipRoutes(StartingPortID,EndingPortID)
-VALUES (14,15)
+VALUES (14,15);
 
 /* Ships */
 INSERT INTO Ships (ShipName,			ShipTypeID,		ShipLength,		ShipWidth,	ShipDraft,		ShipDeadWeight,		ShipGrossTonnage,	MMSI)
@@ -141,12 +141,20 @@ INSERT INTO Persons(ShipID, Title,					SocialID,			FirstName,		LastName,		Phone,
 			 VALUES(2,		'Matkustaja',			'01234-0015',		'Sakari',		'Repo',			'185556842',	'42050',		'Helsinki',	'Unioninkatu 50',		null);
 INSERT INTO Persons(ShipID, Title,					SocialID,			FirstName,		LastName,		Phone,			ZipCode,		City,		MailingAddress,			Picture)
 			 VALUES(2,		'Matkustaja',			'01234-0016',		'Ilmari',		'Juntunen',		'156887996',	'42050',		'Helsinki',	'Snelmanninkatu 6',		null);
-	
+
 /* 15 same size containers */
-DECLARE @i INT = 1;
-WHILE @i < 16
-BEGIN
-	INSERT INTO Container(ContainerBarCode,	ContainerWeight,	CarryingCapacity,	ContainerWidth,	ContainerHeigth,	ContainerDepth)
-				   VALUES(@i,				2.34,				2000,				244.000,		259.000,			605.000);
-	SET @i = @i + 1;
-END;
+INSERT INTO Container(ContainerBarCode, ContainerWeight, CarryingCapacity, ContainerWidth, ContainerHeigth, ContainerDepth) VALUES(1, 2.34, 2000, 244.000, 259.000, 605.000);
+INSERT INTO Container(ContainerBarCode, ContainerWeight, CarryingCapacity, ContainerWidth, ContainerHeigth, ContainerDepth) VALUES(2, 2.34, 2000, 244.000, 259.000, 605.000);
+INSERT INTO Container(ContainerBarCode, ContainerWeight, CarryingCapacity, ContainerWidth, ContainerHeigth, ContainerDepth) VALUES(3, 2.34, 2000, 244.000, 259.000, 605.000);
+INSERT INTO Container(ContainerBarCode, ContainerWeight, CarryingCapacity, ContainerWidth, ContainerHeigth, ContainerDepth) VALUES(4, 2.34, 2000, 244.000, 259.000, 605.000);
+INSERT INTO Container(ContainerBarCode, ContainerWeight, CarryingCapacity, ContainerWidth, ContainerHeigth, ContainerDepth) VALUES(5, 2.34, 2000, 244.000, 259.000, 605.000);
+INSERT INTO Container(ContainerBarCode, ContainerWeight, CarryingCapacity, ContainerWidth, ContainerHeigth, ContainerDepth) VALUES(6, 2.34, 2000, 244.000, 259.000, 605.000);
+INSERT INTO Container(ContainerBarCode, ContainerWeight, CarryingCapacity, ContainerWidth, ContainerHeigth, ContainerDepth) VALUES(7, 2.34, 2000, 244.000, 259.000, 605.000);
+INSERT INTO Container(ContainerBarCode, ContainerWeight, CarryingCapacity, ContainerWidth, ContainerHeigth, ContainerDepth) VALUES(8, 2.34, 2000, 244.000, 259.000, 605.000);
+INSERT INTO Container(ContainerBarCode, ContainerWeight, CarryingCapacity, ContainerWidth, ContainerHeigth, ContainerDepth) VALUES(9, 2.34, 2000, 244.000, 259.000, 605.000);
+INSERT INTO Container(ContainerBarCode, ContainerWeight, CarryingCapacity, ContainerWidth, ContainerHeigth, ContainerDepth) VALUES(10, 2.34, 2000, 244.000, 259.000, 605.000);
+INSERT INTO Container(ContainerBarCode, ContainerWeight, CarryingCapacity, ContainerWidth, ContainerHeigth, ContainerDepth) VALUES(11, 2.34, 2000, 244.000, 259.000, 605.000);
+INSERT INTO Container(ContainerBarCode, ContainerWeight, CarryingCapacity, ContainerWidth, ContainerHeigth, ContainerDepth) VALUES(12, 2.34, 2000, 244.000, 259.000, 605.000);
+INSERT INTO Container(ContainerBarCode, ContainerWeight, CarryingCapacity, ContainerWidth, ContainerHeigth, ContainerDepth) VALUES(13, 2.34, 2000, 244.000, 259.000, 605.000);
+INSERT INTO Container(ContainerBarCode, ContainerWeight, CarryingCapacity, ContainerWidth, ContainerHeigth, ContainerDepth) VALUES(14, 2.34, 2000, 244.000, 259.000, 605.000);
+INSERT INTO Container(ContainerBarCode, ContainerWeight, CarryingCapacity, ContainerWidth, ContainerHeigth, ContainerDepth) VALUES(15, 2.34, 2000, 244.000, 259.000, 605.000);
