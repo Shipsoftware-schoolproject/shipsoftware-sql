@@ -26,7 +26,9 @@ ENGINE = INNODB;
 CREATE TABLE ShipRoutes (
 	ShipRoutesID int NOT NULL AUTO_INCREMENT,
 	StartingPortID int  ,
-	EndingPortID int  ,	
+	EndingPortID int  ,
+INDEX indexStartingPortID (StartingPortID),
+INDEX indexEndingPortID (EndingPortID),
 PRIMARY KEY (ShipRoutesID) ,
 FOREIGN KEY (StartingPortID) REFERENCES ShipPorts (ShipPortID) , 
 FOREIGN KEY (EndingPortID) REFERENCES ShipPorts (ShipPortID) )
@@ -37,6 +39,8 @@ CREATE TABLE ShipRouteCheckpoint (
 	ShipRoutesID int NOT NULL ,
 	CheckpointID int NOT NULL ,
 PRIMARY KEY (ShipRouteCheckpointID) ,
+INDEX indexShipRoutesID(ShipRoutesID),
+INDEX indexCheckpointID (CheckpointID),
 FOREIGN KEY (ShipRoutesID) REFERENCES ShipRoutes (ShipRoutesID),
 FOREIGN KEY (CheckpointID) REFERENCES RouteCheckpoint (CheckpointID) )
 ENGINE = INNODB;
@@ -56,6 +60,8 @@ CREATE TABLE Ships (
 	IsSailing bit DEFAULT 0,
 	ShipSpeed decimal (6,4) DEFAULT 0,
 PRIMARY KEY (ShipID ) ,
+INDEX indexShipTypeID(ShipTypeID),
+INDEX indexShipRoutesID(ShipRoutesID),
 FOREIGN KEY (ShipTypeID) REFERENCES ShipTypes (ShipTypeID),
 FOREIGN KEY (ShipRoutesID) REFERENCES ShipRoutes (ShipRoutesID) )
 ENGINE = INNODB; -- ONKO LAIVALLA pakko olla reitti?
@@ -67,6 +73,7 @@ CREATE TABLE GPS (
 	North float NOT NULL,
 	East float NOT NULL,
 	UpdatedTime timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+INDEX indexShipID(ShipID),
 PRIMARY KEY (LogID),
 FOREIGN KEY (ShipID) REFERENCES Ships (ShipID) )
 ENGINE = INNODB;
@@ -75,6 +82,7 @@ CREATE TABLE Cargo (
 	CargoID int NOT NULL AUTO_INCREMENT,
 	CargoType varchar(30) NOT NULL,
 	ShipID int NOT NULL,
+INDEX indexShipID(ShipID),
 PRIMARY KEY (CargoID) ,
 FOREIGN KEY (ShipID) REFERENCES Ships (ShipID) )
 ENGINE = INNODB;
@@ -93,6 +101,8 @@ CREATE TABLE CargoContainer (
 	ContainerBarCode int NOT NULL,
 	CargoID int NOT NULL ,
 	Overall_Weight Decimal(6),
+INDEX indexCargoID(CargoID),
+INDEX indexContainerBarCode(ContainerBarCode),
 PRIMARY KEY (ContainerBarCode) ,
 FOREIGN KEY (CargoID) REFERENCES Cargo (CargoID) ,
 FOREIGN KEY (ContainerBarCode) REFERENCES Container (ContainerBarCode) )
@@ -109,6 +119,7 @@ CREATE TABLE Persons (
 	City Varchar(85) ,		/*#NOT NULL päälle kun on testattu*/
 	MailingAddress Varchar(85) ,			/*#NOT NULL päälle kun on testattu*/
 	Picture LONGBLOB,   /* TODO: ehkä kuvan voisi säilyttää esim. kiintolevyllä ja tämä olisi tyylin polku kuvaan? */
+INDEX indexShipID(ShipID),
 PRIMARY KEY (SocialID ),
 FOREIGN KEY (ShipID) REFERENCES Ships (ShipID) )
 ENGINE = INNODB;
