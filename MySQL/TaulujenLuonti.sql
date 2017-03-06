@@ -4,21 +4,24 @@ USE d6_Shipsoftware
 CREATE TABLE ShipTypes (
 	ShipTypeID int NOT NULL AUTO_INCREMENT,
 	Name varchar(30) NOT NULL , /* matkustaja,tankkeri, sukellusvene, sotavene, rahtilaiva */
-PRIMARY KEY (ShipTypeID) );
+PRIMARY KEY (ShipTypeID) )
+ENGINE = INNODB;
 
 CREATE TABLE ShipPorts (
 	ShipPortID int NOT NULL AUTO_INCREMENT,
 	Name varchar(85) NOT NULL ,
 	North float NOT NULL ,
 	East float NOT NULL ,
-PRIMARY KEY (ShipPortID) );
+PRIMARY KEY (ShipPortID) )
+ENGINE = INNODB;
 
 CREATE TABLE RouteCheckpoint (
 	CheckpointID int NOT NULL , /* TODO: tarvisiko AUTO_INCREMENT:n?? */
 	CheckpointName varchar(24) ,
 	North float NOT NULL ,
 	East float NOT NULL ,
-PRIMARY KEY (CheckpointID) );
+PRIMARY KEY (CheckpointID) )
+ENGINE = INNODB;
 
 CREATE TABLE ShipRoutes (
 	ShipRoutesID int NOT NULL AUTO_INCREMENT,
@@ -26,7 +29,8 @@ CREATE TABLE ShipRoutes (
 	EndingPortID int  ,	
 PRIMARY KEY (ShipRoutesID) ,
 FOREIGN KEY (StartingPortID) REFERENCES ShipPorts (ShipPortID) , 
-FOREIGN KEY (EndingPortID) REFERENCES ShipPorts (ShipPortID) );
+FOREIGN KEY (EndingPortID) REFERENCES ShipPorts (ShipPortID) )
+ENGINE = INNODB;
 
 CREATE TABLE ShipRouteCheckpoint (
 	ShipRouteCheckpointID int NOT NULL AUTO_INCREMENT,
@@ -34,7 +38,8 @@ CREATE TABLE ShipRouteCheckpoint (
 	CheckpointID int NOT NULL ,
 PRIMARY KEY (ShipRouteCheckpointID) ,
 FOREIGN KEY (ShipRoutesID) REFERENCES ShipRoutes (ShipRoutesID),
-FOREIGN KEY (CheckpointID) REFERENCES RouteCheckpoint (CheckpointID) );
+FOREIGN KEY (CheckpointID) REFERENCES RouteCheckpoint (CheckpointID) )
+ENGINE = INNODB;
 
 CREATE TABLE Ships (
 	ShipID int NOT NULL AUTO_INCREMENT, 					/*	yksilöllinen ID Laivalle*/
@@ -52,7 +57,8 @@ CREATE TABLE Ships (
 	ShipSpeed decimal (6,4) DEFAULT 0,
 PRIMARY KEY (ShipID ) ,
 FOREIGN KEY (ShipTypeID) REFERENCES ShipTypes (ShipTypeID),
-FOREIGN KEY (ShipRoutesID) REFERENCES ShipRoutes (ShipRoutesID) ); -- ONKO LAIVALLA pakko olla reitti?
+FOREIGN KEY (ShipRoutesID) REFERENCES ShipRoutes (ShipRoutesID) )
+ENGINE = INNODB; -- ONKO LAIVALLA pakko olla reitti?
 
 -- TODO: @Jori päivitä kantaan ja tee triggeri
 CREATE TABLE GPS (
@@ -62,14 +68,16 @@ CREATE TABLE GPS (
 	East float NOT NULL,
 	UpdatedTime timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 PRIMARY KEY (LogID),
-FOREIGN KEY (ShipID) REFERENCES Ships (ShipID) );
+FOREIGN KEY (ShipID) REFERENCES Ships (ShipID) )
+ENGINE = INNODB;
 
 CREATE TABLE Cargo (
 	CargoID int NOT NULL AUTO_INCREMENT,
 	CargoType varchar(30) NOT NULL,
 	ShipID int NOT NULL,
 PRIMARY KEY (CargoID) ,
-FOREIGN KEY (ShipID) REFERENCES Ships (ShipID) );
+FOREIGN KEY (ShipID) REFERENCES Ships (ShipID) )
+ENGINE = INNODB;
 
 CREATE TABLE Container (
 	ContainerBarCode int NOT NULL ,
@@ -78,7 +86,8 @@ CREATE TABLE Container (
 	ContainerWidth decimal(9,3) NOT NULL ,
 	ContainerHeigth decimal(9,3) NOT NULL ,
 	ContainerDepth decimal(9,3) NOT NULL ,
-PRIMARY KEY (ContainerBarCode)) ;
+PRIMARY KEY (ContainerBarCode)) 
+ENGINE = INNODB;
 
 CREATE TABLE CargoContainer (
 	ContainerBarCode int NOT NULL,
@@ -86,7 +95,8 @@ CREATE TABLE CargoContainer (
 	Overall_Weight Decimal(6),
 PRIMARY KEY (ContainerBarCode) ,
 FOREIGN KEY (CargoID) REFERENCES Cargo (CargoID) ,
-FOREIGN KEY (ContainerBarCode) REFERENCES Container (ContainerBarCode) );
+FOREIGN KEY (ContainerBarCode) REFERENCES Container (ContainerBarCode) )
+ENGINE = INNODB;
 
 CREATE TABLE Persons (
 	ShipID int NOT NULL ,
@@ -100,6 +110,7 @@ CREATE TABLE Persons (
 	MailingAddress Varchar(85) ,			/*#NOT NULL päälle kun on testattu*/
 	Picture LONGBLOB,   /* TODO: ehkä kuvan voisi säilyttää esim. kiintolevyllä ja tämä olisi tyylin polku kuvaan? */
 PRIMARY KEY (SocialID ),
-FOREIGN KEY (ShipID) REFERENCES Ships (ShipID) );
+FOREIGN KEY (ShipID) REFERENCES Ships (ShipID) )
+ENGINE = INNODB;
 
 CREATE INDEX ix_Title ON Persons(Title)
