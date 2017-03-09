@@ -158,3 +158,13 @@ INSERT INTO Container(ContainerBarCode, ContainerWeight, CarryingCapacity, Conta
 INSERT INTO Container(ContainerBarCode, ContainerWeight, CarryingCapacity, ContainerWidth, ContainerHeigth, ContainerDepth) VALUES(13, 2.34, 2000, 244.000, 259.000, 605.000);
 INSERT INTO Container(ContainerBarCode, ContainerWeight, CarryingCapacity, ContainerWidth, ContainerHeigth, ContainerDepth) VALUES(14, 2.34, 2000, 244.000, 259.000, 605.000);
 INSERT INTO Container(ContainerBarCode, ContainerWeight, CarryingCapacity, ContainerWidth, ContainerHeigth, ContainerDepth) VALUES(15, 2.34, 2000, 244.000, 259.000, 605.000);
+
+
+// lisäsin cargocontainerit
+INSERT INTO CargoContainer (ContainerBarCode,CargoID,OverallWeight) VALUES (1,1,(select ContainerWeight from Container where ContainerBarCode=1)+ .100);
+INSERT INTO CargoContainer (ContainerBarCode,CargoID,OverallWeight) VALUES (2,1,(select ContainerWeight from Container where ContainerBarCode=2)+ .500);
+INSERT INTO CargoContainer (ContainerBarCode,CargoID,OverallWeight) VALUES (3,2,(select ContainerWeight from Container where ContainerBarCode=3)+ 13.144); 
+INSERT INTO CargoContainer (ContainerBarCode,CargoID,OverallWeight) VALUES (4,3,(select ContainerWeight from Container where ContainerBarCode=4)+ 14.564); 
+INSERT INTO CargoContainer (ContainerBarCode,CargoID,OverallWeight) VALUES (5,3,(select ContainerWeight from Container where ContainerBarCode=5)+ 54.896);
+INSERT INTO CargoContainer (ContainerBarCode,CargoID,OverallWeight) VALUES (6,4,(select ContainerWeight from Container where ContainerBarCode=6)+ 8.756); 
+INSERT INTO CargoContainer (ContainerBarCode,CargoID,OverallWeight) VALUES (7,5,(select ContainerWeight from Container where ContainerBarCode=7)+ .123); 
