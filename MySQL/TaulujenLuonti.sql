@@ -100,7 +100,7 @@ ENGINE = INNODB;
 CREATE TABLE CargoContainer (
 	ContainerBarCode int NOT NULL,
 	CargoID int NOT NULL ,
-	Overall_Weight Decimal(6),
+	OverallWeight Decimal(6,3),
 INDEX indexCargoID(CargoID),
 INDEX indexContainerBarCode(ContainerBarCode),
 PRIMARY KEY (ContainerBarCode) ,
