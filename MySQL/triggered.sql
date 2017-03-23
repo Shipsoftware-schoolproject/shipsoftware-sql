@@ -1,30 +1,14 @@
-use d6_Shipsoftware
+DROP TRIGGER IF EXISTS TarkistaGPSLoki;
 
-go
-
-IF EXISTS (SELECT * FROM sys.objects WHERE [name] = 'TarkistaGPSLoki' AND [type] = 'TR')
-
-DROP TRIGGER TarkistaGPSLoki
-
-GO 
-CREATE TRIGGER TarkistaGPSLoki
-ON GPS
-For INSERT
-AS
-BEGIN TRANSACTION
-
-DECLARE @LKM int
-DECLARE @LAIVAID int
-SET @LAIVAID = (SELECT ShipID FROM inserted)
-SET @LKM = (SELECT COUNT(*) FROM GPS WHERE ShipID = @LAIVAID)
-
-While @LKM > 5
+/* DELIMETERIKSI '/'! */
+CREATE TRIGGER TarkistaGPSLoki BEFORE INSERT ON GPS
+FOR EACH ROW
 BEGIN
-print 'Liikaa Lokeja'
-delete from GPS
-where ShipID = @LAIVAID AND LogID = (select top 1 LogID from GPS where ShipID = @LAIVAID order by LogID ASC);
-Set @LKM = @LKM - 1;
-
-END
-COMMIT TRANSACTION 
-GO
+	SET @LAIVAID = NEW.ShipID;
+    SET @LKM = (SELECT COUNT(*) FROM GPS WHERE ShipID = @LAIVAID);
+    
+    WHILE @LKM > 5 DO
+    	DELETE FROM GPS WHERE ShipID = @LAIVAID AND LogID = (SELECT LogID FROM GPS WHERE ShipID = @LAIVAID ORDER BY LogID ASC LIMIT 1);
+        SET @LKM = LKM - 1;
+    END WHILE;
+END/
