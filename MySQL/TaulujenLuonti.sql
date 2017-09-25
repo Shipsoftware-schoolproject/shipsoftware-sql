@@ -1,6 +1,5 @@
-/* versio: 1.6.1 */
+/* versio: 1.6.2 */
 
-USE d6_Shipsoftware
 CREATE TABLE ShipTypes (
 	ShipTypeID int NOT NULL AUTO_INCREMENT,
 	Name varchar(30) NOT NULL , /* matkustaja,tankkeri, sukellusvene, sotavene, rahtilaiva */

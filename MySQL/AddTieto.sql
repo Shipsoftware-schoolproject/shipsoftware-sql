@@ -1,5 +1,3 @@
-USE d6_Shipsoftware
-
 /* Ship Types */
 INSERT INTO ShipTypes (Name)
 VALUES ('Cargo Ship');
@@ -160,7 +158,7 @@ INSERT INTO Container(ContainerBarCode, ContainerWeight, CarryingCapacity, Conta
 INSERT INTO Container(ContainerBarCode, ContainerWeight, CarryingCapacity, ContainerWidth, ContainerHeigth, ContainerDepth) VALUES(15, 2.34, 2000, 244.000, 259.000, 605.000);
 
 
-// lisäsin cargocontainerit
+/* lisäsin cargocontainerit */
 INSERT INTO CargoContainer (ContainerBarCode,CargoID,OverallWeight) VALUES (1,1,(select ContainerWeight from Container where ContainerBarCode=1)+ .100);
 INSERT INTO CargoContainer (ContainerBarCode,CargoID,OverallWeight) VALUES (2,1,(select ContainerWeight from Container where ContainerBarCode=2)+ .500);
 INSERT INTO CargoContainer (ContainerBarCode,CargoID,OverallWeight) VALUES (3,2,(select ContainerWeight from Container where ContainerBarCode=3)+ 13.144); 
