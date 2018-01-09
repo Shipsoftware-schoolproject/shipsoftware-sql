@@ -1,3 +1,4 @@
-## Shipsoftware
+## Shipsoftware-sql
 
-Program written in C# to see ships location, cargo, route and etc. The program was done as a school project.
+SQL files to create databases and tables
+
