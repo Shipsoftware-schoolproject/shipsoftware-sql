@@ -83,7 +83,7 @@ CREATE TABLE Ships (
 	ShipSpeed decimal (6,4) DEFAULT 0, 		-- laivan nopeus
 	-- ei tietoa mitä nää on mutta kerätään kumminkin
 	RefFront int,
-	RerLeft int,
+	RefLeft int,
 	PathText varchar(60),
 	Iclass char,
 	TargetType char,
