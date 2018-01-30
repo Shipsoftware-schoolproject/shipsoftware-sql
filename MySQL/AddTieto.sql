@@ -1,3 +1,5 @@
+-- versio 2.0
+
 /* Ship Types */
 INSERT INTO ShipTypes (Name)
 VALUES ('Cargo Ship');
@@ -6,7 +8,7 @@ VALUES ('Passanger Ship');
 INSERT INTO ShipTypes (Name)
 VALUES ('Tanker');
 
-/* Ports */
+/* Ports 
 INSERT INTO ShipPorts (Name,North,East)
 VALUES ('Vaasa Port',63.087916,21.552222);
 INSERT INTO ShipPorts (Name,North,East)
@@ -38,9 +40,9 @@ VALUES ('Copenhagen',55.703008,12.598819);
 INSERT INTO ShipPorts (Name,North,East)
 VALUES ('Malmo Port',55.624808,12.98867);
 INSERT INTO ShipPorts (Name,North,East)
-VALUES ('Helsinki Port',60.166603,24.954865);
+VALUES ('Helsinki Port',60.166603,24.954865); */
 
-/* Routes */
+/* Routes 
 INSERT INTO ShipRoutes(StartingPortID,EndingPortID)
 VALUES (1,2);
 INSERT INTO ShipRoutes(StartingPortID,EndingPortID)
@@ -82,87 +84,80 @@ VALUES (16,5);
 INSERT INTO ShipRoutes(StartingPortID,EndingPortID)
 VALUES (15,14);
 INSERT INTO ShipRoutes(StartingPortID,EndingPortID)
-VALUES (14,15);
+VALUES (14,15); */
 
-/* Ships */
-INSERT INTO Ships (ShipName,			ShipTypeID,		ShipLength,		ShipWidth,	ShipDraft,		ShipDeadWeight,		ShipGrossTonnage,	MMSI)
-			VALUES('M/S Wasa Express',	2,				141,			22.81,		4.95,			4150,				17053,				230636000);
-INSERT INTO Ships (ShipName,			ShipTypeID,		ShipLength,		ShipWidth,	ShipDraft,		ShipDeadWeight,		ShipGrossTonnage,	MMSI)
-			VALUES('Colombo Express',	1,				335.07,			42.87,		9.80,			103800,				93750,				211433000);
-INSERT INTO Ships (ShipName,			ShipTypeID,		ShipLength,		ShipWidth,	ShipDraft,		ShipDeadWeight,		ShipGrossTonnage,	MMSI)
-			VALUES('M/S STAR',			2,				186,			28,			6.5,			4700,				36249,				276672000);
-INSERT INTO Ships (ShipName,			ShipTypeID,		ShipLength,		ShipWidth,	ShipDraft,		ShipDeadWeight,		ShipGrossTonnage,	MMSI)
-			VALUES('M/S SUPERSTAR',		2,				177,			27.6,		7,				5000,				36400,				276747000);
-INSERT INTO Ships (ShipName,			ShipTypeID,		ShipLength,		ShipWidth,	ShipDraft,		ShipDeadWeight,		ShipGrossTonnage,	MMSI)
-			VALUES('M/S Susanne',		1,				89.8,			13.6,		5.8,			3200,				2409,				244613000);
-INSERT INTO Ships (ShipName,			ShipTypeID,		ShipLength,		ShipWidth,	ShipDraft,		ShipDeadWeight,		ShipGrossTonnage,	MMSI)
-			VALUES('Delta Pioneer',		3,				250,			44,			8,				111013,				62320,				240244000);
-INSERT INTO Ships (ShipName,			ShipTypeID,		ShipLength,		ShipWidth,	ShipDraft,		ShipDeadWeight,		ShipGrossTonnage,	MMSI)
-			VALUES('Finnstraum',		3,				140,			22,			6.7,			16028,				9956,				257409000);
-INSERT INTO Ships (ShipName,			ShipTypeID,		ShipLength,		ShipWidth,	ShipDraft,		ShipDeadWeight,		ShipGrossTonnage,	MMSI)
-			VALUES('Neptune Pioneer',	1,				189.9,			32.26,		8.2,			55921,				31236,				372723000);
-INSERT INTO Ships (ShipName,			ShipTypeID,		ShipLength,		ShipWidth,	ShipDraft,		ShipDeadWeight,		ShipGrossTonnage,	MMSI)
-			VALUES('BBC Bahrain',		1,				128.45,			16.6,		6,				7967,				6309,				305847000);
-INSERT INTO Ships (ShipName,			ShipTypeID,		ShipLength,		ShipWidth,	ShipDraft,		ShipDeadWeight,		ShipGrossTonnage,	MMSI)
-			VALUES('M/S Amorella',		2,				169.4,			28.2,		6.3,			3690,				34384,				230172000);
+/* Ships  */
+INSERT INTO Ships(IMO,			ShipName,		TypeID,	MMSI)
+	   VALUES(8000226,		'M/S Wasa Express',	2,	230636000);
 
-/* Persons */
-INSERT INTO Persons(ShipID, Title,					SocialID,			FirstName,		LastName,		Phone,			ZipCode,		City,		MailingAddress,			Picture)
-			 VALUES(1,		'Kapteeni',				'01234-0001',		'Matti',		'Seppänen',		'168613899',	'65200',		'Vaasa',	'Wolffintie 31',		null);
-INSERT INTO Persons(ShipID, Title,					SocialID,			FirstName,		LastName,		Phone,			ZipCode,		City,		MailingAddress,			Picture)
-			 VALUES(1,		'Perämies',				'01234-0002',		'Joona',		'Kotka',		'3467489763',	'65200',		'Vaasa',	'Wolffintie 25',		null);
-INSERT INTO Persons(ShipID, Title,					SocialID,			FirstName,		LastName,		Phone,			ZipCode,		City,		MailingAddress,			Picture)
-			 VALUES(1,		'Turvallisuusvastaaja', '01234-0003',		'Erkki',		'Isotalo',		'865432489',	'65200',		'Vaasa',	'Ahventie 10',			null);
-INSERT INTO Persons(ShipID, Title,					SocialID,			FirstName,		LastName,		Phone,			ZipCode,		City,		MailingAddress,			Picture)
-			 VALUES(1,		'Moottorimekaniikko',	'01234-0004',		'Sasu',			'Nurminen',		'3456748963',	'65200',		'Vaasa',	'Ahventie 2',			null);
-INSERT INTO Persons(ShipID, Title,					SocialID,			FirstName,		LastName,		Phone,			ZipCode,		City,		MailingAddress,			Picture)
-			 VALUES(1,		'Rahtivastaaja',		'01234-0009',		'Janne',		'Soini',		'0503459875',	'65200',		'Vaasa',	'Palosaarentie 29', 	null);
-INSERT INTO Persons(ShipID, Title,					SocialID,			FirstName,		LastName,		Phone,			ZipCode,		City,		MailingAddress,			Picture)
-			 VALUES(1,		'Sähkömekaniikko',		'01234-0012',		'Eino',			'Heikkinen',	'0600657895',	'65200',		'Vaasa',	'Kapteeninkatu 1',		null);
-INSERT INTO Persons(ShipID, Title,					SocialID,			FirstName,		LastName,		Phone,			ZipCode,		City,		MailingAddress,			Picture)
-			 VALUES(1,		'Matkustaja',			'01234-0013',		'Taina',		'Järvelä',		'0198456243',	'80160',		'Joensuu',	'Marjalantie 2',		null);
-INSERT INTO Persons(ShipID, Title,					SocialID,			FirstName,		LastName,		Phone,			ZipCode,		City,		MailingAddress,			Picture)
-			 VALUES(1,		'Matkustaja',			'01234-0014',		'Kimmo',		'Järvelä',		'5053498762',	'80160',		'Joensuu',	'Marjalantie 2',		null);
-INSERT INTO Persons(ShipID, Title,					SocialID,			FirstName,		LastName,		Phone,			ZipCode,		City,		MailingAddress,			Picture)
-			 VALUES(2,		'Kapteeni',				'01234-0005',		'Ville',		'Jokinen',		'3548978364',	'65200',		'Vaasa',	'Kirkkopuistikko 5',	null);
-INSERT INTO Persons(ShipID, Title,					SocialID,			FirstName,		LastName,		Phone,			ZipCode,		City,		MailingAddress,			Picture)
-			 VALUES(2,		'Perämies',				'01234-0006',		'Tuukka',		'Kuusela',		'354889752',	'65200',		'Vaasa',	'Hovioikeudenpuisto 2',	null);
-INSERT INTO Persons(ShipID, Title,					SocialID,			FirstName,		LastName,		Phone,			ZipCode,		City,		MailingAddress,			Picture)
-			 VALUES(2,		'Turvallisuusvastaaja',	'01234-0007',		'Jenni',		'Nieminen',		'8656431285',	'65200',		'Vaasa',	'Palosaarentie 13', 	null);
-INSERT INTO Persons(ShipID, Title,					SocialID,			FirstName,		LastName,		Phone,			ZipCode,		City,		MailingAddress,			Picture)
-			 VALUES(2,		'Moottorimekaniikko',	'01234-0008',		'Tommi',		'Tuomioja',		'050135896',	'65200',		'Vaasa',	'Palosaarentie 30', 	null);
-INSERT INTO Persons(ShipID, Title,					SocialID,			FirstName,		LastName,		Phone,			ZipCode,		City,		MailingAddress,			Picture)
-			 VALUES(2,		'Rahtivastaaja',		'01234-0010',		'Ilkka',		'Palosaari',	'659875022',	'65200',		'Vaasa',	'Wolffintie 30',		null);
-INSERT INTO Persons(ShipID, Title,					SocialID,			FirstName,		LastName,		Phone,			ZipCode,		City,		MailingAddress,			Picture)
-			 VALUES(2,		'Sähkömekaniikko',		'01234-0011',		'Oona',			'Vuorinen',		'044456891',	'65200',		'Vaasa',	'Kapteeninkatu 11',		null);
-INSERT INTO Persons(ShipID, Title,					SocialID,			FirstName,		LastName,		Phone,			ZipCode,		City,		MailingAddress,			Picture)
-			 VALUES(2,		'Matkustaja',			'01234-0015',		'Sakari',		'Repo',			'185556842',	'42050',		'Helsinki',	'Unioninkatu 50',		null);
-INSERT INTO Persons(ShipID, Title,					SocialID,			FirstName,		LastName,		Phone,			ZipCode,		City,		MailingAddress,			Picture)
-			 VALUES(2,		'Matkustaja',			'01234-0016',		'Ilmari',		'Juntunen',		'156887996',	'42050',		'Helsinki',	'Snelmanninkatu 6',		null);
+INSERT INTO Ships(IMO,			ShipName,		TypeID,	MMSI)
+	   VALUES(295244,		'Colombo Express',	1,	211433000);
+
+INSERT INTO Ships(IMO,			ShipName,		TypeID,	MMSI)
+	   VALUES(9364722,		'M/S STAR',		2,	276672000);
+
+INSERT INTO Ships(IMO,			ShipName,		TypeID,	MMSI)
+	   VALUES(365398,		'M/S SUPERSTAR',	2,	276747000);
+
+INSERT INTO Ships(IMO,			ShipName,		TypeID,	MMSI)
+	   VALUES(279006,		'M/S Susanne',		1,	244613000);
+
+INSERT INTO Ships(IMO,			ShipName,		TypeID,	MMSI)
+	   VALUES(9288693,		'Delta Pioneer',	3,	240244000);
+
+INSERT INTO Ships(IMO,			ShipName,		TypeID,	MMSI)
+	   VALUES(172222,		'Finnstraum',		3,	257409000);
+
+INSERT INTO Ships(IMO,			ShipName,		TypeID,	MMSI)
+	   VALUES(9308247,		'Neptune Pioneer',	1,	372723000);
+
+INSERT INTO Ships(IMO,			ShipName,		TypeID,	MMSI)
+	   VALUES(578751,		'BBC Bahrain',		1,	305847000);
+
+INSERT INTO Ships(IMO,			ShipName,		TypeID,	MMSI)
+	   VALUES(601915,		'M/S Amorella',		2,	230172000);
+			
+			
+/* Persons lisäys malli */
+INSERT INTO Persons(IMO, Title,CompanyID,FirstName,LastName,Phone,ZipCode,City,MailingAddress,Picture)
+			 VALUES(8000226,'Kapteeni',1,'Matti','Seppänen','168613899','65200','Vaasa','Wolffintie 31',null);
+			 
+INSERT INTO Roles(Name)
+			 VALUES('Admin');
+INSERT INTO Roles(Name)
+			 VALUES('Yritykset');
+INSERT INTO Roles(Name)
+			 VALUES('Tullivirkailija');
+INSERT INTO Roles(Name)
+			 VALUES('Ahtaaja');
+INSERT INTO Roles(Name)
+			 VALUES('Satamavirkailija');
+INSERT INTO Roles(Name)
+			 VALUES('Sihteeri');
 
 /* 15 same size containers */
-INSERT INTO Container(ContainerBarCode, ContainerWeight, CarryingCapacity, ContainerWidth, ContainerHeigth, ContainerDepth) VALUES(1, 2.34, 2000, 244.000, 259.000, 605.000);
-INSERT INTO Container(ContainerBarCode, ContainerWeight, CarryingCapacity, ContainerWidth, ContainerHeigth, ContainerDepth) VALUES(2, 2.34, 2000, 244.000, 259.000, 605.000);
-INSERT INTO Container(ContainerBarCode, ContainerWeight, CarryingCapacity, ContainerWidth, ContainerHeigth, ContainerDepth) VALUES(3, 2.34, 2000, 244.000, 259.000, 605.000);
-INSERT INTO Container(ContainerBarCode, ContainerWeight, CarryingCapacity, ContainerWidth, ContainerHeigth, ContainerDepth) VALUES(4, 2.34, 2000, 244.000, 259.000, 605.000);
-INSERT INTO Container(ContainerBarCode, ContainerWeight, CarryingCapacity, ContainerWidth, ContainerHeigth, ContainerDepth) VALUES(5, 2.34, 2000, 244.000, 259.000, 605.000);
-INSERT INTO Container(ContainerBarCode, ContainerWeight, CarryingCapacity, ContainerWidth, ContainerHeigth, ContainerDepth) VALUES(6, 2.34, 2000, 244.000, 259.000, 605.000);
-INSERT INTO Container(ContainerBarCode, ContainerWeight, CarryingCapacity, ContainerWidth, ContainerHeigth, ContainerDepth) VALUES(7, 2.34, 2000, 244.000, 259.000, 605.000);
-INSERT INTO Container(ContainerBarCode, ContainerWeight, CarryingCapacity, ContainerWidth, ContainerHeigth, ContainerDepth) VALUES(8, 2.34, 2000, 244.000, 259.000, 605.000);
-INSERT INTO Container(ContainerBarCode, ContainerWeight, CarryingCapacity, ContainerWidth, ContainerHeigth, ContainerDepth) VALUES(9, 2.34, 2000, 244.000, 259.000, 605.000);
-INSERT INTO Container(ContainerBarCode, ContainerWeight, CarryingCapacity, ContainerWidth, ContainerHeigth, ContainerDepth) VALUES(10, 2.34, 2000, 244.000, 259.000, 605.000);
-INSERT INTO Container(ContainerBarCode, ContainerWeight, CarryingCapacity, ContainerWidth, ContainerHeigth, ContainerDepth) VALUES(11, 2.34, 2000, 244.000, 259.000, 605.000);
-INSERT INTO Container(ContainerBarCode, ContainerWeight, CarryingCapacity, ContainerWidth, ContainerHeigth, ContainerDepth) VALUES(12, 2.34, 2000, 244.000, 259.000, 605.000);
-INSERT INTO Container(ContainerBarCode, ContainerWeight, CarryingCapacity, ContainerWidth, ContainerHeigth, ContainerDepth) VALUES(13, 2.34, 2000, 244.000, 259.000, 605.000);
-INSERT INTO Container(ContainerBarCode, ContainerWeight, CarryingCapacity, ContainerWidth, ContainerHeigth, ContainerDepth) VALUES(14, 2.34, 2000, 244.000, 259.000, 605.000);
-INSERT INTO Container(ContainerBarCode, ContainerWeight, CarryingCapacity, ContainerWidth, ContainerHeigth, ContainerDepth) VALUES(15, 2.34, 2000, 244.000, 259.000, 605.000);
+INSERT INTO Container(BarCode, Weight, Capacity, Width, Heigth, ContainerDepth) VALUES(1, 2.34, 2000, 244.000, 259.000, 605.000);
+INSERT INTO Container(BarCode, Weight, Capacity, Width, Heigth, ContainerDepth) VALUES(2, 2.34, 2000, 244.000, 259.000, 605.000);
+INSERT INTO Container(BarCode, Weight, Capacity, Width, Heigth, ContainerDepth) VALUES(3, 2.34, 2000, 244.000, 259.000, 605.000);
+INSERT INTO Container(BarCode, Weight, Capacity, Width, Heigth, ContainerDepth) VALUES(4, 2.34, 2000, 244.000, 259.000, 605.000);
+INSERT INTO Container(BarCode, Weight, Capacity, Width, Heigth, ContainerDepth) VALUES(5, 2.34, 2000, 244.000, 259.000, 605.000);
+INSERT INTO Container(BarCode, Weight, Capacity, Width, Heigth, ContainerDepth) VALUES(6, 2.34, 2000, 244.000, 259.000, 605.000);
+INSERT INTO Container(BarCode, Weight, Capacity, Width, Heigth, ContainerDepth) VALUES(7, 2.34, 2000, 244.000, 259.000, 605.000);
+INSERT INTO Container(BarCode, Weight, Capacity, Width, Heigth, ContainerDepth) VALUES(8, 2.34, 2000, 244.000, 259.000, 605.000);
+INSERT INTO Container(BarCode, Weight, Capacity, Width, Heigth, ContainerDepth) VALUES(9, 2.34, 2000, 244.000, 259.000, 605.000);
+INSERT INTO Container(BarCode, Weight, Capacity, Width, Heigth, ContainerDepth) VALUES(10, 2.34, 2000, 244.000, 259.000, 605.000);
+INSERT INTO Container(BarCode, Weight, Capacity, Width, Heigth, ContainerDepth) VALUES(11, 2.34, 2000, 244.000, 259.000, 605.000);
+INSERT INTO Container(BarCode, Weight, Capacity, Width, Heigth, ContainerDepth) VALUES(12, 2.34, 2000, 244.000, 259.000, 605.000);
+INSERT INTO Container(BarCode, Weight, Capacity, Width, Heigth, ContainerDepth) VALUES(13, 2.34, 2000, 244.000, 259.000, 605.000);
+INSERT INTO Container(BarCode, Weight, Capacity, Width, Heigth, ContainerDepth) VALUES(14, 2.34, 2000, 244.000, 259.000, 605.000);
+INSERT INTO Container(BarCode, Weight, Capacity, Width, Heigth, ContainerDepth) VALUES(15, 2.34, 2000, 244.000, 259.000, 605.000);
 
 
 /* lisäsin cargocontainerit */
-INSERT INTO CargoContainer (ContainerBarCode,CargoID,OverallWeight) VALUES (1,1,(select ContainerWeight from Container where ContainerBarCode=1)+ .100);
-INSERT INTO CargoContainer (ContainerBarCode,CargoID,OverallWeight) VALUES (2,1,(select ContainerWeight from Container where ContainerBarCode=2)+ .500);
-INSERT INTO CargoContainer (ContainerBarCode,CargoID,OverallWeight) VALUES (3,2,(select ContainerWeight from Container where ContainerBarCode=3)+ 13.144); 
-INSERT INTO CargoContainer (ContainerBarCode,CargoID,OverallWeight) VALUES (4,3,(select ContainerWeight from Container where ContainerBarCode=4)+ 14.564); 
-INSERT INTO CargoContainer (ContainerBarCode,CargoID,OverallWeight) VALUES (5,3,(select ContainerWeight from Container where ContainerBarCode=5)+ 54.896);
-INSERT INTO CargoContainer (ContainerBarCode,CargoID,OverallWeight) VALUES (6,4,(select ContainerWeight from Container where ContainerBarCode=6)+ 8.756); 
-INSERT INTO CargoContainer (ContainerBarCode,CargoID,OverallWeight) VALUES (7,5,(select ContainerWeight from Container where ContainerBarCode=7)+ .123); 
+INSERT INTO CargoContainer (BarCode,ID,OverallWeight) VALUES (1,1,(select Weight from Container where BarCode=1)+ .100);
+INSERT INTO CargoContainer (BarCode,ID,OverallWeight) VALUES (2,1,(select Weight from Container where BarCode=2)+ .500);
+INSERT INTO CargoContainer (BarCode,ID,OverallWeight) VALUES (3,2,(select Weight from Container where BarCode=3)+ 13.144); 
+INSERT INTO CargoContainer (BarCode,ID,OverallWeight) VALUES (4,3,(select Weight from Container where BarCode=4)+ 14.564); 
+INSERT INTO CargoContainer (BarCode,ID,OverallWeight) VALUES (5,3,(select Weight from Container where BarCode=5)+ 54.896);
+INSERT INTO CargoContainer (BarCode,ID,OverallWeight) VALUES (6,4,(select Weight from Container where BarCode=6)+ 8.756); 
+INSERT INTO CargoContainer (BarCode,ID,OverallWeight) VALUES (7,5,(select Weight from Container where BarCode=7)+ .123); 
