@@ -49,7 +49,7 @@ FOREIGN KEY (CheckpointID) REFERENCES RouteCheckpoint (CheckpointID) )
 ENGINE = INNODB;
 */
 CREATE TABLE Country (
-	ID int NOT NULL ,
+	ID int NOT NULL AUTO_INCREMENT,
 	Name varchar(36) NOT NULL unique,
 INDEX indexID(ID),
 PRIMARY KEY (ID))
