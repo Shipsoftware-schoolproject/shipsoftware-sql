@@ -364,8 +364,9 @@ INSERT INTO Ships(IMO,			ShipName,		TypeID,	MMSI)
 			
 			
 /* Persons lisäys malli */
-INSERT INTO Users(IMO, Title,FirstName,LastName,Phone,ZipCode,City,MailingAddress,Picture)
+INSERT INTO Persons(IMO, Title,FirstName,LastName,Phone,ZipCode,City,MailingAddress,Picture)
 			 VALUES(8000226,'Kapteeni','Matti','Seppänen','168613899','65200','Vaasa','Wolffintie 31',null);
+			 
 			 
 INSERT INTO Roles(Name)
 			 VALUES('Admin');
@@ -379,6 +380,9 @@ INSERT INTO Roles(Name)
 			 VALUES('Satamavirkailija');
 INSERT INTO Roles(Name)
 			 VALUES('Sihteeri');
+			 
+INSERT INTO Persons(RoleID,Username,Email,Password,FirstName,LastName,Phone,Picture)
+			 VALUES(1,'Admin1','Matti.Meikäläinen@shipsoftware.local','Secret','Matti','Meikäläinen','0405019602',null);
 
 /* 15 same size containers */
 INSERT INTO Container(BarCode, Weight, Capacity, Width, Heigth, ContainerDepth) VALUES(1, 2.34, 2000, 244.000, 259.000, 605.000);
