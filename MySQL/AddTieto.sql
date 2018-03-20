@@ -381,7 +381,7 @@ INSERT INTO Roles(Name)
 INSERT INTO Roles(Name)
 			 VALUES('Sihteeri');
 			 
-INSERT INTO Persons(RoleID,Username,Email,Password,FirstName,LastName,Phone,Picture)
+INSERT INTO Users(RoleID,Username,Email,Password,FirstName,LastName,Phone,Picture)
 			 VALUES(1,'Admin1','Matti.Meikäläinen@shipsoftware.local','Secret','Matti','Meikäläinen','0405019602',null);
 
 /* 15 same size containers */
