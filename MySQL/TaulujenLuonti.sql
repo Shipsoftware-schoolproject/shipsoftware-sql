@@ -155,12 +155,7 @@ ENGINE = INNODB;
 CREATE TABLE Persons (
 	IMO int,
 	Title varchar(60),			/*	#Esim kapteeni, perämies jne.*/
-	RoleID int,
-	CompanyID int,
-	UserID int(11) NOT NULL AUTO_INCREMENT,
-	Username varchar(30) NOT NULL unique,
-	Email varchar(60) NOT NULL unique,
-	Password varchar(60) NOT NULL,
+	PersonID int(11) NOT NULL AUTO_INCREMENT,
 	-- Lisää role ja roles taulukko ja kysy juusolta
 	CountryID int,
 	FirstName varchar(30) NOT NULL ,
@@ -170,14 +165,32 @@ CREATE TABLE Persons (
 	City Varchar(85) ,		/*#NOT NULL päälle kun on testattu*/
 	MailingAddress Varchar(85) ,			/*#NOT NULL päälle kun on testattu*/
 	Picture LONGBLOB,
+	Created timestamp DEFAULT CURRENT_TIMESTAMP,
+	Updated DATETIME,
+INDEX indexIMO(IMO),
+PRIMARY KEY (PersonID ),
+FOREIGN KEY (CountryID) REFERENCES Country (ID), 
+FOREIGN KEY (IMO) REFERENCES Ships (IMO) )
+ENGINE = INNODB;
+
+CREATE TABLE Users (
+	RoleID int,
+	CompanyID int,
+	UserID int(11) NOT NULL AUTO_INCREMENT,
+	Username varchar(30) NOT NULL unique,
+	Email varchar(60) NOT NULL unique,
+	Password varchar(60) NOT NULL,
+	-- Lisää role ja roles taulukko ja kysy juusolta
+	FirstName varchar(30) NOT NULL ,
+	LastName varchar(30) NOT NULL,
+	Phone varchar(20),				/* Muuta kun persons table päivitetty!! */
+	Picture LONGBLOB,
 	RememberME varchar(100),
 	Created timestamp DEFAULT CURRENT_TIMESTAMP,
 	Updated DATETIME,
 INDEX indexIMO(IMO),
 PRIMARY KEY (UserID ),
-FOREIGN KEY (RoleID) REFERENCES Roles (ID), 
-FOREIGN KEY (CountryID) REFERENCES Country (ID), 
-FOREIGN KEY (IMO) REFERENCES Ships (IMO) )
+FOREIGN KEY (RoleID) REFERENCES Roles (ID))
 ENGINE = INNODB;
 
 CREATE INDEX ix_Title ON Persons(Title)
