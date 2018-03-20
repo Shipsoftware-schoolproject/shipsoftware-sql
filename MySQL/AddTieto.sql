@@ -338,8 +338,8 @@ INSERT INTO ShipRoutes(StartingPortID,EndingPortID)
 VALUES (14,15); */
 
 /* Ships  */
-INSERT INTO Ships(IMO,			ShipName,		TypeID,	MMSI)
-	   VALUES(8000226,		'M/S Wasa Express',	2,	230636000);
+INSERT INTO Ships(IMO,			ShipName,		TypeID,	MMSI, CompanyID)
+	   VALUES(8000226,		'M/S Wasa Express',	2,	230636000,1);
 
 INSERT INTO Ships(IMO,			ShipName,		TypeID,	MMSI)
 	   VALUES(295244,		'Colombo Express',	1,	211433000);
