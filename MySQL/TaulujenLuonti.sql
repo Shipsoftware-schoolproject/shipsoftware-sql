@@ -188,7 +188,6 @@ CREATE TABLE Users (
 	RememberME varchar(100),
 	Created timestamp DEFAULT CURRENT_TIMESTAMP,
 	Updated DATETIME,
-INDEX indexIMO(IMO),
 PRIMARY KEY (UserID ),
 FOREIGN KEY (RoleID) REFERENCES Roles (ID))
 ENGINE = INNODB;
