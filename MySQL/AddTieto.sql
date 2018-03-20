@@ -245,6 +245,7 @@ INSERT INTO Country (Name) VALUES ('Zaire');
 INSERT INTO Country (Name) VALUES ('Zambia');
 INSERT INTO Country (Name) VALUES ('Zimbabwe');
 
+
 /* Ship Types */
 INSERT INTO ShipTypes (Name)
 VALUES ('Cargo Ship');
@@ -252,6 +253,11 @@ INSERT INTO ShipTypes (Name)
 VALUES ('Passanger Ship');
 INSERT INTO ShipTypes (Name)
 VALUES ('Tanker');
+
+INSERT INTO Companies (Name,CountryID)
+VALUES ('DefaultCompany',1);
+
+
 
 /* Ports 
 INSERT INTO ShipPorts (Name,North,East)
