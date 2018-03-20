@@ -364,8 +364,8 @@ INSERT INTO Ships(IMO,			ShipName,		TypeID,	MMSI)
 			
 			
 /* Persons lisäys malli */
-INSERT INTO Persons(IMO, Title,CompanyID,FirstName,LastName,Phone,ZipCode,City,MailingAddress,Picture)
-			 VALUES(8000226,'Kapteeni',1,'Matti','Seppänen','168613899','65200','Vaasa','Wolffintie 31',null);
+INSERT INTO Users(IMO, Title,FirstName,LastName,Phone,ZipCode,City,MailingAddress,Picture)
+			 VALUES(8000226,'Kapteeni','Matti','Seppänen','168613899','65200','Vaasa','Wolffintie 31',null);
 			 
 INSERT INTO Roles(Name)
 			 VALUES('Admin');
